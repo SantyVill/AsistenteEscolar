@@ -2,11 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AsistenteEscolar.Views.InstitucionesViews.InstitucionesIndex">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar Institución"
+                     Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="Lista_Instituciones"
+                  HasUnevenRows="True"
+                  ItemTapped="Lista_Instituciones_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Eliminar"
+                                      x:Name="btnDelete"
+                                      IsDestructive="True"
+                                      Clicked="btnDelete_Clicked"
+                                      CommandParameter="{Binding .}"></MenuItem>
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="15,0">
+                            <Label Text="{Binding Nombre}"
+                                   FontSize="Medium"
+                                   TextColor="#a74c3c"
+                                   x:Name="BtnVerInstitucion"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

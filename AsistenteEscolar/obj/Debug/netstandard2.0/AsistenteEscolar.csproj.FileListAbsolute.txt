@@ -13,3 +13,12 @@ F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\XamlC.
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.dll
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\refint\AsistenteEscolar.dll
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.pdb
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoCreate.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoEdit.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoShow.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursosIndex.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionCreate.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionEdit.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionesIndex.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionShow.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\Prueba.xaml.g.cs

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AsistenteEscolar.Data.Models
 {
-    internal class Institucion
+    public class Institucion
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Nombre { get; set; }
     }
 }
