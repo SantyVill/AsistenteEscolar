@@ -1,0 +1,15 @@
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\bin\Debug\netstandard2.0\AsistenteEscolar.deps.json
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\bin\Debug\netstandard2.0\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\bin\Debug\netstandard2.0\ref\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\bin\Debug\netstandard2.0\AsistenteEscolar.pdb
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.csproj.AssemblyReference.cache
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.GeneratedMSBuildEditorConfig.editorconfig
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\App.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfoInputs.cache
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfo.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.csproj.CoreCompileInputs.cache
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\XamlC.stamp
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\refint\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.pdb
