@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AsistenteEscolar.Data.Models
 {
-    internal class NotaAlumno
+    public class NotaAlumno
     {
         [Indexed]
         public int NotaId { get; set; }
