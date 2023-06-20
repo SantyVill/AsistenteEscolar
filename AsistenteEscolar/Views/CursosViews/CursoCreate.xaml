@@ -4,9 +4,9 @@
              x:Class="AsistenteEscolar.Views.CursosViews.CursoCreate">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Nombre de Curso: "/>
+            <Entry x:Name="nombre"/>
+            <Button x:Name="Guardar" Text="Guardar" Clicked="Guardar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

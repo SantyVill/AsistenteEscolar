@@ -18,7 +18,7 @@ namespace AsistenteEscolar.Views.InstitucionesViews
         {
             InitializeComponent();
             LoadItems();
-
+            Title= "Instituciones";
         }
 
         protected override void OnAppearing()

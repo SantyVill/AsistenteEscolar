@@ -6,13 +6,7 @@ F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Asiste
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.GeneratedMSBuildEditorConfig.editorconfig
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\App.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfoInputs.cache
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfo.cs
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.csproj.CoreCompileInputs.cache
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\XamlC.stamp
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.dll
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\refint\AsistenteEscolar.dll
-F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.pdb
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\AlumnosViews\AlumnosIndex.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoCreate.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoEdit.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\CursosViews\CursoShow.xaml.g.cs
@@ -22,3 +16,11 @@ F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionesIndex.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\InstitucionShow.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\InstitucionesViews\Prueba.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\MateriasViews\MateriasIndex.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfoInputs.cache
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.AssemblyInfo.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.csproj.CoreCompileInputs.cache
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\XamlC.stamp
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\refint\AsistenteEscolar.dll
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.pdb
