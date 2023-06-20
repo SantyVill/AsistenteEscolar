@@ -1,4 +1,5 @@
 ﻿using AsistenteEscolar.Data.Models;
+using AsistenteEscolar.Views.CursosViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,23 +33,15 @@ namespace AsistenteEscolar.Views.InstitucionesViews
             Lista_Instituciones.ItemsSource = items;
         }
 
-        private async void CargarInstitucionesAsync()
-        {
-            // Obtener la lista de instituciones desde la base de datos
-            var instituciones = await App.Context.GetAllInstitucionesAsync();
-
-            // Asignar la lista de instituciones al control ListView
-            Lista_Instituciones.ItemsSource = instituciones;
-        }
-
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new InstitucionCreate());
         }
 
-        private void Lista_Instituciones_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void Lista_Instituciones_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            Institucion institucion = e.Item as Institucion;
+            await Navigation.PushAsync(new CursosIndex(institucion));
         }
 
         private async void btnDelete_Clicked(object sender, EventArgs e)
