@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsistenteEscolar.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,10 @@ namespace AsistenteEscolar.Views.CursosViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CursosIndex : ContentPage
     {
-        public CursosIndex()
+        private int institucionId;
+        public CursosIndex(Institucion institucion)
         {
+            institucionId = institucion.Id;
             InitializeComponent();
         }
     }
