@@ -210,9 +210,9 @@ namespace AsistenteEscolar.Data
         }
 
         //CRUD para la tabla AsistenciaAlumno
-        public async Task<List<AsistenciaAlumno>> GetAsistenciaAlumnosByMateriaIdAsync(int materiaId)
+        public async Task<List<AsistenciaAlumno>> GetAsistenciasAlumnosByAsistenciaIdAsync(int asistenciaId)
         {
-            return await Task.Run(() => Table<AsistenciaAlumno>().Where(c => c.AsistenciaId == materiaId).ToList());
+            return await Task.Run(() => Table<AsistenciaAlumno>().Where(c => c.AsistenciaId == asistenciaId).ToList());
         }
 
         /* public async Task<AsistenciaAlumno> GetAsistenciaAlumnoByIdAsync(int asistenciaAlumnoId)

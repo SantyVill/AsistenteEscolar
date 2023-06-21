@@ -11,5 +11,6 @@ namespace AsistenteEscolar.Data.Models
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
         public int MateriaId { get; set; }
+        public List<AsistenciaAlumno> asistenciasAlumnos;
     }
 }

@@ -8,9 +8,16 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="AsistenciaListView"
+                      ItemsSource="{Binding Asistencias}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Aquí defines la apariencia de cada elemento de la lista -->
+                        <TextCell Text="{Binding Fecha}"
+                                  Detail="{Binding MateriaId}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

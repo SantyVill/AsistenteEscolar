@@ -29,3 +29,4 @@ F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\MateriasViews\MateriaShow.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\AsistenciasViews\AsistenciasIndex.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\NotasViews\NotasIndex.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\AsistenciasViews\TomarAsistencia.xaml.g.cs

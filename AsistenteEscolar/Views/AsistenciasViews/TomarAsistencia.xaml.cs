@@ -16,53 +16,97 @@ namespace AsistenteEscolar.Views.AsistenciasViews
     {
         private Materia materia;
         private List<Alumno> alumnos;
+        private Asistencia asistencia;
 
         public TomarAsistencia(Materia materia_)
         {
             materia = materia_;
             InitializeComponent();
+
+            CargarAsistenciaAsync();
         }
 
-        protected override void OnAppearing()
+        private async Task CargarAsistenciaAsync()
         {
-            base.OnAppearing();
-            CargarAlumnos();
+            asistencia = new Asistencia
+            {
+                Fecha = DateTime.Now,
+                MateriaId = materia.Id,
+            };
+
+            await App.Context.InsertAsistenciaAsync(asistencia);
+
+            await CargarAlumnosAsync();
         }
 
-        private void CargarAlumnos()
+        private async Task CargarAlumnosAsync()
         {
-            // Obtener la lista de alumnos del curso
-            // Puedes utilizar el servicio correspondiente o la lógica que ya tienes implementada
+            alumnos = await App.Context.GetAlumnosByCursoIdAsync(materia.CursoId);
 
-            // Generar los controles de asistencia para cada alumno
             foreach (var alumno in alumnos)
             {
-                var checkBox = new CheckBox
+                var switchControl = new Switch
                 {
-                    Text = alumno.Apellido+", "+alumno.Nombre,
                     BindingContext = alumno,
                     Margin = new Thickness(0, 5)
                 };
-                AlumnosStackLayout.Children.Add(checkBox);
+                switchControl.Toggled += SwitchControl_Toggled;
+
+                var label = new Label
+                {
+                    Text = alumno.Apellido + ", " + alumno.Nombre,
+                    Margin = new Thickness(10, 0)
+                };
+
+                var stackLayout = new StackLayout
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    Children = { switchControl, label }
+                };
+
+                AlumnosStackLayout.Children.Add(stackLayout);
             }
         }
 
-        private void GuardarAsistencia_Clicked(object sender, EventArgs e)
+        private async void SwitchControl_Toggled(object sender, ToggledEventArgs e)
+        {
+            // Manejar el evento de cambio de estado del Switch
+            var switchControl = (Switch)sender;
+            var alumno = switchControl.BindingContext as Alumno;
+            var presente = switchControl.IsToggled;
+
+            var item = new AsistenciaAlumno
+            {
+                AlumnoId = alumno.Id,
+                AsistenciaId = asistencia.Id,
+                Asistio = presente
+            };
+
+            await App.Context.InsertAsistenciaAlumnoAsync(item);
+        }
+
+        private async void GuardarAsistencia_Clicked(object sender, EventArgs e)
         {
             // Iterar sobre los controles de asistencia y guardar los registros
-            foreach (CheckBox checkBox in AlumnosStackLayout.Children)
+            foreach (var stackLayout in AlumnosStackLayout.Children)
             {
-                var alumno = checkBox.BindingContext as Alumno;
-                var presente = checkBox.IsChecked;
+                var switchControl = ((StackLayout)stackLayout).Children[0] as Switch;
+                var alumno = switchControl.BindingContext as Alumno;
+                var presente = switchControl.IsToggled;
+
+                var item = new AsistenciaAlumno
+                {
+                    AlumnoId = alumno.Id,
+                    AsistenciaId = asistencia.Id,
+                    Asistio = presente
+                };
 
                 // Guardar el registro de asistencia en la tabla AsistenciaAlumno
-                // Puedes utilizar el servicio correspondiente o la lógica que ya tienes implementada
+                await App.Context.InsertAsistenciaAlumnoAsync(item);
             }
 
-            // Guardar el registro de asistencia en la tabla Asistencia
-            // Puedes utilizar el servicio correspondiente o la lógica que ya tienes implementada
-
-            DisplayAlert("Éxito", "La asistencia ha sido registrada correctamente.", "Aceptar");
+            await DisplayAlert("Éxito", "La asistencia ha sido registrada correctamente.", "Aceptar");
+            await Navigation.PopAsync();
         }
     }
 }
