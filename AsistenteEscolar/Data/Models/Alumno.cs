@@ -12,5 +12,7 @@ namespace AsistenteEscolar.Data.Models
         public string Apellido { get; set; }
         public string Nombre { get; set; }
         public int CursoId { get; set; }
+
+        public List<AsistenciaAlumno> asistenciasAlumno;
     }
 }

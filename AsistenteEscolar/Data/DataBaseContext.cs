@@ -83,7 +83,13 @@ namespace AsistenteEscolar.Data
         //CRUD para la tabla Alumno
         public async Task<List<Alumno>> GetAlumnosByCursoIdAsync(int cursoId)
         {
-            return await Task.Run(() => Table<Alumno>().Where(c => c.CursoId == cursoId).ToList());
+            
+            List<Alumno> alumnos = await Task.Run(() => Table<Alumno>().Where(c => c.CursoId == cursoId).OrderBy(a => a.Apellido).ThenBy(a => a.Nombre).ToList());
+            foreach (var alumno in alumnos)
+            {
+                alumno.asistenciasAlumno = await Task.Run(()=> Table<AsistenciaAlumno>().Where(c => c.AlumnoId == alumno.Id).ToList());
+            }
+            return alumnos;
         }
 
         public async Task<Alumno> GetAlumnoByIdAsync(int alumnoId)
@@ -186,7 +192,13 @@ namespace AsistenteEscolar.Data
         //CRUD para la tabla Asistencia
         public async Task<List<Asistencia>> GetAsistenciasByMateriaIdAsync(int materiaId)
         {
-            return await Task.Run(() => Table<Asistencia>().Where(c => c.MateriaId == materiaId).ToList());
+            List<Asistencia> asistencias = await Task.Run(() => Table<Asistencia>().Where(c => c.MateriaId == materiaId).ToList());
+            /* return await Task.Run(() => Table<Asistencia>().Where(c => c.MateriaId == materiaId).ToList()); */
+            foreach (var asistencia in asistencias)
+            {
+                asistencia.asistenciasAlumnos = await App.Context.GetAsistenciasAlumnosByAsistenciaIdAsync(asistencia.Id);
+            }
+            return asistencias;
         }
 
         public async Task<Asistencia> GetAsistenciaByIdAsync(int asistenciaId)
