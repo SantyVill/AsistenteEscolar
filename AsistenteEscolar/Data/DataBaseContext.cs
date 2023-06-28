@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+
 
 namespace AsistenteEscolar.Data
 {
@@ -89,6 +91,34 @@ namespace AsistenteEscolar.Data
             {
                 alumno.asistenciasAlumno = await Task.Run(()=> Table<AsistenciaAlumno>().Where(c => c.AlumnoId == alumno.Id).ToList());
             }
+            return alumnos;
+        }
+        public async Task<List<Alumno>> GetAlumnosByMateriaAsync(Materia materia)
+        {
+            /* Materia materia = await GetMateriaByIdAsync(materiaId); */
+            /* List<Alumno> alumnos = await Task.Run(() => Table<Alumno>().Where(c => c.CursoId == materia.CursoId).OrderBy(a => a.Apellido).ThenBy(a => a.Nombre).ToList());
+            List<Asistencia> asistencias = await GetAsistenciasByMateriaIdAsync(materia.Id);
+            List<int> asistenciaIds = asistencias.Select(a => a.Id).ToList();
+            foreach (var alumno in alumnos)
+            {
+                alumno.asistenciasAlumno = await Task.Run(() =>
+                Table<AsistenciaAlumno>()
+                .Where(c => c.AlumnoId == alumno.Id && asistencias.Select(a => a.Id).Contains(c.AsistenciaId))
+                .ToList());
+            }
+            return alumnos; */
+            List<Alumno> alumnos = await Task.Run(() => Table<Alumno>().Where(c => c.CursoId == materia.CursoId).OrderBy(a => a.Apellido).ThenBy(a => a.Nombre).ToList());
+            List<Asistencia> asistencias = await GetAsistenciasByMateriaIdAsync(materia.Id);
+            List<int> asistenciaIds = asistencias.Select(a => a.Id).ToList();
+
+            foreach (var alumno in alumnos)
+            {
+                alumno.asistenciasAlumno = await Task.Run(() =>
+                    Table<AsistenciaAlumno>()
+                    .Where(c => c.AlumnoId == alumno.Id && asistenciaIds.Contains(c.AsistenciaId))
+                    .ToList());
+            }
+
             return alumnos;
         }
 
@@ -226,6 +256,18 @@ namespace AsistenteEscolar.Data
         {
             return await Task.Run(() => Table<AsistenciaAlumno>().Where(c => c.AsistenciaId == asistenciaId).ToList());
         }
+        /* public async Task<List<AsistenciaAlumno>> GetAsistenciasAlumnosByAsistenciaIdAlumnoIdAsync(int materiaId,int alumnoId)
+        {
+            var asistencias = GetAsistenciasByMateriaIdAsync(materiaId);
+            List<AsistenciaAlumno> asistenciasAlumnos;
+            foreach (var item in collection)
+            {
+                
+            }
+            return await Task.Run(() => Table<AsistenciaAlumno>()
+            .Where(c => c.AlumnoId == alumnoId && asistenciaIds.Contains(c.AsistenciaId))
+            .ToList());
+        } */
 
         /* public async Task<AsistenciaAlumno> GetAsistenciaAlumnoByIdAsync(int asistenciaAlumnoId)
         {

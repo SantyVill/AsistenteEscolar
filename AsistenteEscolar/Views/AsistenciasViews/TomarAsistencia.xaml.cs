@@ -82,7 +82,7 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                 Asistio = presente
             };
 
-            await App.Context.InsertAsistenciaAlumnoAsync(item);
+            /* await App.Context.InsertAsistenciaAlumnoAsync(item); */
         }
 
         private async void GuardarAsistencia_Clicked(object sender, EventArgs e)
