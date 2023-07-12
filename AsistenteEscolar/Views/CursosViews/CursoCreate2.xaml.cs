@@ -1,21 +1,22 @@
-﻿using System;
+﻿using AsistenteEscolar.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AsistenteEscolar.Data.Models;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace AsistenteEscolar.Views.CursosViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CursoCreate : ContentPage
+    public partial class CursoCreate2 : ContentPage
     {
         private int institucionId;
-        public CursoCreate(int idInstitucion)
+        public CursoCreate2(int idInstitucion)
         {
-            institucionId=idInstitucion;
+            institucionId = idInstitucion;
             InitializeComponent();
             Title = "Nuevo Curso";
         }

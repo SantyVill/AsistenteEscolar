@@ -25,11 +25,11 @@ namespace AsistenteEscolar.Views.AsistenciasViews
             materia = materia_;
             InitializeComponent();
             BindingContext = this;
-            LoadItems();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
+            LoadItems();
             base.OnAppearing();
         }
 
@@ -37,13 +37,16 @@ namespace AsistenteEscolar.Views.AsistenciasViews
         {
             var asistencias = await App.Context.GetAsistenciasByMateriaIdAsync(materia.Id);
             var alumnos = await App.Context.GetAlumnosByMateriaAsync(materia);
+            tablaAsistencia.Children.Clear();
+            tablaAsistencia.ColumnDefinitions.Clear();
+            tablaAsistencia.RowDefinitions.Clear();
 
             for (int i = 0; i < asistencias.Count()+2; i++)
             {
                 tablaAsistencia.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
                 if (i>1)
                 {
-                    tablaAsistencia.Children.Add(new Label { Text = asistencias[i-2].Fecha.ToString("dd/MM/yyyy"), FontSize = 16}, i, 0);
+                    tablaAsistencia.Children.Add(new Label { Text = asistencias[i-2].Fecha.ToString("dd/MM/yyyy"), FontSize = 13}, i, 0);
                 }
             }
             tablaAsistencia.Children.Add(new Label { Text = "Asis"}, 1, 0);

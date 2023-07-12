@@ -7,37 +7,31 @@ using AsistenteEscolar.Data.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AsistenteEscolar.Views.AlumnosViews
+namespace AsistenteEscolar.Views.MateriasViews
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AlumnoCreate : ContentPage
+	public partial class MateriaEdit : ContentPage
 	{
-        private Curso curso;
-		public AlumnoCreate (Curso curso_)
+		private Materia materia;
+		public MateriaEdit (Materia _materia)
 		{
-            curso = curso_;
+			materia=_materia;
 			InitializeComponent ();
 		}
 
-        private async void Guardar_Clicked(object sender, EventArgs e)
+		private async void Editar_Clicked(object sender, EventArgs e)
         {
             try
             {
-                var item = new Alumno
-                {
-                    Nombre = nombre.Text,
-                    Apellido = apellido.Text,
-                    CursoId = curso.Id,
-                };
-
-                var resultado = await App.Context.InsertAlumnoAsync(item);
+                materia.Nombre = nombre.Text;
+                var resultado = await App.Context.UpdateMateriaAsync(materia);
                 if (resultado == 1)
                 {
                     await Navigation.PopAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Error", "No se pudo guardar los datos del Alumno", "Ok");
+                    await DisplayAlert("Error", "No se pudo guardar la Materia", "Ok");
                 }
             }
             catch (Exception ex)
@@ -45,5 +39,10 @@ namespace AsistenteEscolar.Views.AlumnosViews
                 await DisplayAlert("Error", ex.Message, "Aceptar");
             }
         }
-    }
+
+        private async void Cancelar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+	}
 }

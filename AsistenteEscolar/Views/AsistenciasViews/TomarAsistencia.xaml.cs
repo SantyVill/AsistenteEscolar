@@ -23,7 +23,12 @@ namespace AsistenteEscolar.Views.AsistenciasViews
             materia = materia_;
             InitializeComponent();
 
-            CargarAsistenciaAsync();
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await CargarAsistenciaAsync();
         }
 
         private async Task CargarAsistenciaAsync()
@@ -68,7 +73,7 @@ namespace AsistenteEscolar.Views.AsistenciasViews
             }
         }
 
-        private async void SwitchControl_Toggled(object sender, ToggledEventArgs e)
+        private void SwitchControl_Toggled(object sender, ToggledEventArgs e)
         {
             // Manejar el evento de cambio de estado del Switch
             var switchControl = (Switch)sender;

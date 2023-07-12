@@ -12,8 +12,10 @@ namespace AsistenteEscolar
         public App()
         {
             InitializeComponent();
-            InitializeDataBase();
+            InitializeDataBase(); 
             MainPage = new NavigationPage(new InstitucionesIndex());
+            var navigationPage = Application.Current.MainPage as NavigationPage;
+            navigationPage.BarBackgroundColor = Color.FromHex("#4c3be7");
         }
 
         private void InitializeDataBase()

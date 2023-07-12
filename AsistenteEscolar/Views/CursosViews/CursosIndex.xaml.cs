@@ -35,7 +35,7 @@ namespace AsistenteEscolar.Views.CursosViews
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CursoCreate(institucionId));
+            await Navigation.PushAsync(new CursoCreate2(institucionId));
         }
 
         private async void Lista_Cursos_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -55,6 +55,11 @@ namespace AsistenteEscolar.Views.CursosViews
                     LoadItems();
                 }
             }
+        }
+
+        private async void btnEdit_Clicked(object sender,EventArgs e){
+            var item = (Curso)(sender as MenuItem).CommandParameter;
+            await Navigation.PushAsync(new CursoEdit(item));
         }
     }
 }

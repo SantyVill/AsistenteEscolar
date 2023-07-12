@@ -33,7 +33,7 @@ namespace AsistenteEscolar.Views.MateriasViews
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MateriaCreate(curso));
+            await Navigation.PushAsync(new MateriaCreate2(curso));
         }
 
         private async void Lista_Materias_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -53,6 +53,12 @@ namespace AsistenteEscolar.Views.MateriasViews
                     LoadItems();
                 }
             }
+        }
+
+        private async void btnEdit_Clicked(object sender, EventArgs e)
+        {
+            var materia = (Materia)(sender as MenuItem).CommandParameter;
+            await Navigation.PushAsync(new MateriaEdit(materia));
         }
     }
 }

@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AsistenteEscolar.Views.InstitucionesViews
+namespace AsistenteEscolar.Views.MateriasViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InstitucionCreate : ContentPage
+    public partial class MateriaCreate2 : ContentPage
     {
-        public InstitucionCreate()
+        private Curso curso;
+        public MateriaCreate2(Curso curso_)
         {
+            curso = curso_;
             InitializeComponent();
         }
 
@@ -22,19 +24,20 @@ namespace AsistenteEscolar.Views.InstitucionesViews
         {
             try
             {
-                var item = new Institucion
+                var item = new Materia
                 {
                     Nombre = nombre.Text,
+                    CursoId = curso.Id,
                 };
 
-                var resultado = await App.Context.InsertInstitucionAsync(item);
+                var resultado = await App.Context.InsertMateriaAsync(item);
                 if (resultado == 1)
                 {
                     await Navigation.PopAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Error", "No se pudo guardar la Institucion", "Ok");
+                    await DisplayAlert("Error", "No se pudo guardar la Curso", "Ok");
                 }
             }
             catch (Exception ex)

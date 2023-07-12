@@ -13,12 +13,15 @@
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AlumnosViews\AlumnoCreate.xaml">
+    <EmbeddedResource Update="Views\AlumnosViews\AlumnoCreate2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AlumnosViews\AlumnoEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AlumnosViews\AlumnosIndex.xaml">
@@ -33,7 +36,7 @@
     <EmbeddedResource Update="Views\AsistenciasViews\TomarAsistencia2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CursosViews\CursoCreate.xaml">
+    <EmbeddedResource Update="Views\CursosViews\CursoCreate2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CursosViews\CursoEdit.xaml">
@@ -45,7 +48,7 @@
     <EmbeddedResource Update="Views\CursosViews\CursosIndex.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\InstitucionesViews\InstitucionCreate.xaml">
+    <EmbeddedResource Update="Views\InstitucionesViews\InstitucionCreate2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\InstitucionesViews\InstitucionEdit.xaml">
@@ -60,7 +63,10 @@
     <EmbeddedResource Update="Views\InstitucionesViews\Prueba.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MateriasViews\MateriaCreate.xaml">
+    <EmbeddedResource Update="Views\MateriasViews\MateriaCreate2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MateriasViews\MateriaEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MateriasViews\MateriaShow.xaml">

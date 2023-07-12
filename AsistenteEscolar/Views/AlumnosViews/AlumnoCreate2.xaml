@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AsistenteEscolar.Views.AlumnosViews.AlumnoCreate2">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGray">
+            <Frame BorderColor="DarkGreen"
+                   HasShadow="True"
+                   BackgroundColor="White"
+                   HeightRequest="200"
+                   WidthRequest="300"
+                   CornerRadius="20"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,0" Padding="30,20,30,50">
+                <StackLayout VerticalOptions="Center" Padding="0,0,0,30">
+                    <Label Text="Nombre:"
+                           FontSize="Medium"
+                           TextColor="Black" />
+                    <Entry x:Name="nombre"/>
+                    <Label Text="Apellido:"
+                           FontSize="Medium"
+                           TextColor="Black" />
+                    <Entry x:Name="apellido" />
+                    <Button Text="Guardar"
+                            x:Name="Guardar"
+                            Clicked="Guardar_Clicked" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

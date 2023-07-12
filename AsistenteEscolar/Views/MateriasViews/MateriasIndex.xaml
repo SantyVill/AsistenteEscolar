@@ -14,11 +14,15 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Eliminar"
+                            <MenuItem IconImageSource="editar.png"
+                                      x:Name="btnEdit"
+                                      Clicked="btnEdit_Clicked"
+                                      CommandParameter="{Binding .}" />
+                            <MenuItem IconImageSource="borrar.png"
                                       x:Name="btnDelete"
                                       IsDestructive="True"
                                       Clicked="btnDelete_Clicked"
-                                      CommandParameter="{Binding .}"></MenuItem>
+                                      CommandParameter="{Binding .}" />
                         </ViewCell.ContextActions>
                         <StackLayout Padding="15,0">
                             <Label Text="{Binding Nombre}"

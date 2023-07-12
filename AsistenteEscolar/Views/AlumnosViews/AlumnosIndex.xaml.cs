@@ -39,7 +39,7 @@ namespace AsistenteEscolar.Views.AlumnosViews
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AlumnoCreate(curso));
+            await Navigation.PushAsync(new AlumnoCreate2(curso));
         }
 
         private async void btnDelete_Clicked(object sender, EventArgs e)
@@ -53,6 +53,12 @@ namespace AsistenteEscolar.Views.AlumnosViews
                     LoadItems();
                 }
             }
+        }
+
+        private async void btnEdit_Clicked(object sender, EventArgs e)
+        {
+            var alumno = (Alumno)(sender as MenuItem).CommandParameter;
+            await Navigation.PushAsync(new AlumnoEdit(alumno));
         }
     }
 }

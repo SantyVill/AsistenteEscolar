@@ -7,36 +7,11 @@
                      Clicked="TomarAsistencia_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout x:Name="prueba">
-            <Grid x:Name="tablaAsistencia">
-                <!-- <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Alumnos/Fecha"
-                       Grid.Row="0"
-                       Grid.Column="0" />
-                <Label Text="01/01/2023"
-                       Grid.Row="0"
-                       Grid.Column="1" />
-                <Label Text="02/01/2023"
-                       Grid.Row="0"
-                       Grid.Column="2" />
-                <Label Text="Juan Perez"
-                       Grid.Row="1"
-                       Grid.Column="0" />
-                <Label Text="presente"
-                       Grid.Row="1"
-                       Grid.Column="1" />
-                <Label Text="presente"
-                       Grid.Row="1"
-                       Grid.Column="2" /> -->
-            </Grid>
+        <StackLayout x:Name="prueba" Margin="0,15,0,0">
+            <ScrollView Orientation="Horizontal">
+                <Grid x:Name="tablaAsistencia"
+                      Padding="0,0,0,10"></Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

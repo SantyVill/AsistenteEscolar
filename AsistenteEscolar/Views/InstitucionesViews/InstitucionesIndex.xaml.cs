@@ -35,7 +35,7 @@ namespace AsistenteEscolar.Views.InstitucionesViews
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new InstitucionCreate());
+            await Navigation.PushAsync(new InstitucionCreate2());
         }
 
         private async void Lista_Instituciones_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -55,6 +55,12 @@ namespace AsistenteEscolar.Views.InstitucionesViews
                     LoadItems();
                 }
             }
+        }
+
+        private async void btnEdit_Clicked(object sender, EventArgs e)
+        {
+            var item = (Institucion)(sender as MenuItem).CommandParameter;
+            await Navigation.PushAsync(new InstitucionEdit(item));
         }
     }
 }

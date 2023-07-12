@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lr/ITILpeAD0Z5lLx0/xp0kR64/TVpY/V3W1llfid+oiPLMQYop4v5ZuThcQ5Szq4H8PrZ3Fl149WFpQwLVoIQ==",
+  "dgSpecHash": "xwnpi7NB+RFleiEMDbLRAOwb7yZHFxFSsqRfFWwj0FVBjfh91EXmyxoQOYJvUObUOZLRDEePwEi848cc7lgrBg==",
   "success": true,
   "projectFilePath": "F:\\AppsMoviles\\AsistenteEscolar\\AsistenteEscolar.iOS\\AsistenteEscolar.iOS.csproj",
   "expectedPackageFiles": [
@@ -15,5 +15,34 @@
     "C:\\Users\\User\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Degradación del paquete detectada: Xamarin.Essentials de 1.7.6 a 1.7.0. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n AsistenteEscolar.iOS -> AsistenteEscolar -> Xamarin.Essentials (>= 1.7.6) \r\n AsistenteEscolar.iOS -> Xamarin.Essentials (>= 1.7.0)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Degradación del paquete detectada: Xamarin.Forms de 5.0.0.2578 a 5.0.0.2196. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n AsistenteEscolar.iOS -> AsistenteEscolar -> Xamarin.Forms (>= 5.0.0.2578) \r\n AsistenteEscolar.iOS -> Xamarin.Forms (>= 5.0.0.2196)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }
