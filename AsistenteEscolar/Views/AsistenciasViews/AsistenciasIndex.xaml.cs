@@ -49,7 +49,8 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                     tablaAsistencia.Children.Add(new Label { Text = asistencias[i-2].Fecha.ToString("dd/MM/yyyy"), FontSize = 13}, i, 0);
                 }
             }
-            tablaAsistencia.Children.Add(new Label { Text = "Asis"}, 1, 0);
+            tablaAsistencia.Children.Add(new Label { Text = "% Asist." }, 1, 0);
+            //tablaAsistencia.Children.Add(new Label { Text = "% Asist." }, 2, 0);
             tablaAsistencia.Children.Add(new Label { Text = "Fecha" }, 0, 0);
             for (int i = 0; i < alumnos.Count()+1; i++)
             {
@@ -68,8 +69,22 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                         tablaAsistencia.Children.Add(new Label { Text = alumnos[i-1].AsistenciaAlumnoPorAsistencia(asistencias[j-2])}, j, i);
                     } else
                     {
-                        tablaAsistencia.Children.Add(new Label { Text = alumnos[i-1].CantidadAsistencias().ToString()}, j, i);
+                        tablaAsistencia.Children.Add(new Label { Text = "%"+alumnos[i-1].PorcentajeAsistencias().ToString()}, j, i);
                     }
+
+                    /*if (j!=1 || j!=2)
+                    {
+                        tablaAsistencia.Children.Add(new Label { Text = alumnos[i-1].AsistenciaAlumnoPorAsistencia(asistencias[j-3])}, j, i);
+                    } else
+                    {
+                        if (j==1)
+                        {
+                            tablaAsistencia.Children.Add(new Label { Text = alumnos[i-1].CantidadAsistencias().ToString()}, j, i);
+                        } else if (j==2)
+                        {
+                            tablaAsistencia.Children.Add(new Label { Text = alumnos[i - 1].PorcentajeAsistencias().ToString() }, j, i);
+                        }
+                    }*/
                 }
             }
         }

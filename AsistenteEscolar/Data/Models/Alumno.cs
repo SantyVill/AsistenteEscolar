@@ -27,21 +27,35 @@ namespace AsistenteEscolar.Data.Models
             return "-";
         }
 
-        public int CantidadAsistencias(){
-            if (this.asistenciasAlumno!=null)
+        public int CantidadAsistencias()
+        {
+            if (this.asistenciasAlumno != null)
             {
-                int cantidadAsistencias=0;
+                int cantidadAsistencias = 0;
                 foreach (var item in this.asistenciasAlumno)
                 {
                     if (item.Asistio)
                     {
-                        cantidadAsistencias+=1;
+                        cantidadAsistencias += 1;
                     }
                 }
                 return cantidadAsistencias;
-            } else
+            }
+            else
             {
                 return 0;
+            }
+        }
+
+        public int PorcentajeAsistencias()
+        {
+            if (this.asistenciasAlumno.Count()==0)
+            {
+                return 0;
+            }
+            else
+            {
+                return this.CantidadAsistencias()*100 / this.asistenciasAlumno.Count();
             }
         }
 
