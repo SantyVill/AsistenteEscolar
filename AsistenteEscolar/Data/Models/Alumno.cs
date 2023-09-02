@@ -27,6 +27,18 @@ namespace AsistenteEscolar.Data.Models
             return "-";
         }
 
+        public AsistenciaAlumno AsistenciaDelAlumnoPorAsistencia(Asistencia asistencia)
+        {
+            foreach (var item in this.asistenciasAlumno)
+            {
+                if (item.AsistenciaId == asistencia.Id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
         public int CantidadAsistencias()
         {
             if (this.asistenciasAlumno != null)

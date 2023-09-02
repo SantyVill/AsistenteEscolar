@@ -46,7 +46,35 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                 tablaAsistencia.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
                 if (i>1)
                 {
-                    tablaAsistencia.Children.Add(new Label { Text = asistencias[i-2].Fecha.ToString("dd/MM/yyyy"), FontSize = 13}, i, 0);
+                    int currentIndex = i;
+                    //tablaAsistencia.Children.Add(new Label { Text = asistencias[i-2].Fecha.ToString("dd/MM/yyyy"), FontSize = 13}, i, 0);
+                    //--tablaAsistencia.Children.Add(new Button { Text = asistencias[i - 2].Fecha.ToString("dd/MM/yyyy"), FontSize = 13}, i, 0);
+                    tablaAsistencia.Children.Add(new Button
+                    {
+                        Text = asistencias[currentIndex - 2].Fecha.ToString("dd/MM"),
+                        FontSize = 13,
+                        Command = new Command(async () =>
+                        {
+                            // Aquí puedes mostrar un ActionSheet o realizar acciones directamente
+                            var action = await DisplayActionSheet("Opciones", "Cancelar", null, "Editar", "Eliminar");
+
+                            if (action == "Editar")
+                            {
+                                await Navigation.PushAsync(new AsistenciaEdit(asistencias[currentIndex-2]));
+                            }
+                            else if (action == "Eliminar")
+                            {
+                                if (await DisplayAlert("Confirmacion", "Estas seguro de eliminar la asistencia de la fecha "+asistencias[currentIndex-2].Fecha.ToString("dd/MM"), "Si", "No"))
+                                {
+                                    var resultado = await App.Context.DeleteAsistenciaAsync(asistencias[currentIndex-2]);
+                                    if (resultado == 1)
+                                    {
+                                        LoadItems();
+                                    }
+                                }
+                            }
+                        })
+                    }, i, 0);
                 }
             }
             tablaAsistencia.Children.Add(new Label { Text = "% Asist." }, 1, 0);
