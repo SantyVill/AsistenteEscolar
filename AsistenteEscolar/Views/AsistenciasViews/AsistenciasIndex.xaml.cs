@@ -77,9 +77,15 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                     }, i, 0);
                 }
             }
-            tablaAsistencia.Children.Add(new Label { Text = "% Asist." }, 1, 0);
+            tablaAsistencia.Children.Add(new Label { 
+                Text = "% Asist.",
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center 
+            }, 1, 0);
             //tablaAsistencia.Children.Add(new Label { Text = "% Asist." }, 2, 0);
-            tablaAsistencia.Children.Add(new Label { Text = "Fecha" }, 0, 0);
+            tablaAsistencia.Children.Add(new Label { Text = "Alumno\\Fecha Asist.",
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment=TextAlignment.Center }, 0, 0);
             for (int i = 0; i < alumnos.Count()+1; i++)
             {
                 tablaAsistencia.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -94,10 +100,18 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                 {
                     if (j!=1)
                     {
-                        tablaAsistencia.Children.Add(new Label { Text = alumnos[i-1].AsistenciaAlumnoPorAsistencia(asistencias[j-2])}, j, i);
+                        tablaAsistencia.Children.Add(new Label { 
+                            Text = alumnos[i-1].AsistenciaAlumnoPorAsistencia(asistencias[j-2]),
+                            BackgroundColor= (alumnos[i - 1].AsistenciaAlumnoPorAsistencia(asistencias[j - 2])=="P") ? Color.LawnGreen:Color.FromHex("#ff6e65"),
+                            HorizontalTextAlignment = TextAlignment.Center,
+                        }, j, i);
                     } else
                     {
-                        tablaAsistencia.Children.Add(new Label { Text = "%"+alumnos[i-1].PorcentajeAsistencias().ToString()}, j, i);
+                        tablaAsistencia.Children.Add(new Label { 
+                            Text = "%"+alumnos[i-1].PorcentajeAsistencias().ToString(),
+                            BackgroundColor= (alumnos[i - 1].PorcentajeAsistencias()>=75) ?Color.LawnGreen:Color.FromHex("#ff6e65"),
+                            HorizontalTextAlignment=TextAlignment.Center,
+                        }, j, i);
                     }
 
                     /*if (j!=1 || j!=2)

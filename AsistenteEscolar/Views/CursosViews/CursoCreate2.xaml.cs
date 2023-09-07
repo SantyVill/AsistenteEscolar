@@ -28,6 +28,7 @@ namespace AsistenteEscolar.Views.CursosViews
                 var item = new Curso
                 {
                     Nombre = nombre.Text,
+                    Anio = int.Parse(anio.Text),
                     InstitucionId = institucionId,
                 };
 

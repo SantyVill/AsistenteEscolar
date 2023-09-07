@@ -5,13 +5,20 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray">
             <Frame BorderColor="Aqua"
-                   HeightRequest="200"
                    WidthRequest="300"
                    CornerRadius="20"
                    VerticalOptions="Center"
                    HorizontalOptions="Center">
                 <StackLayout VerticalOptions="Center">
-                    <Label Text="Editar Institución:"
+                    <Label Text="Editar Curso:"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                    <Label Text="Año"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                    <Entry x:Name="anio"
+                           Keyboard="Numeric" />
+                    <Label Text="División:"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
                     <Entry x:Name="nombre" />

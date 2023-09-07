@@ -13,9 +13,6 @@ namespace AsistenteEscolar.Views.AsistenciasViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AsistenciaEdit : ContentPage
     {
-        private Materia materia;
-        private List<Alumno> alumnos;
-        private List<AsistenciaAlumno> listaAsistencia = new List<AsistenciaAlumno>();
         private Asistencia asistencia;
         private Alumno alumno;
         //private List<NullableBool> asistenciaList;
@@ -27,14 +24,13 @@ namespace AsistenteEscolar.Views.AsistenciasViews
             InitializeComponent();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await LoadItems();
+            LoadItems();
         }
 
-        private async Task LoadItems(){
-            materia = await App.Context.GetMateriaByIdAsync(asistencia.MateriaId);
+        private void LoadItems(){
             CargarListaAsync();
         }
 
@@ -42,7 +38,6 @@ namespace AsistenteEscolar.Views.AsistenciasViews
         {
             foreach (var item in asistencia.asistenciasAlumnos)
             {
-                Prueba.Text += "Materia: "+materia.Nombre;
                 alumno = await App.Context.GetAlumnoByIdAsync(item.AlumnoId);
                 var switchControl = new Switch
                 {
@@ -107,7 +102,7 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                 await App.Context.UpdateAsistenciaAlumnoAsync(asistenciaAlumno);
             }
 
-            await DisplayAlert("Éxito", "La asistencia ha sido registrada correctamente.", "Aceptar");
+            await DisplayAlert("Éxito", "La asistencia se ha editado correctamente.", "Aceptar");
             await Navigation.PopAsync();
         }
     } 

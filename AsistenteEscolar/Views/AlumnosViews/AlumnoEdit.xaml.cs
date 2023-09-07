@@ -17,13 +17,21 @@ namespace AsistenteEscolar.Views.AlumnosViews
 		{
 			alumno=_alumno;
 			InitializeComponent ();
+            LoadItems();
 		}
+
+        private void LoadItems()
+        {
+            apellido.Text = alumno.Apellido;
+            nombre.Text = alumno.Nombre;
+        }
 
 		private async void Editar_Clicked(object sender, EventArgs e)
         {
             try
             {
                 alumno.Nombre = nombre.Text;
+                alumno.Apellido = apellido.Text;
                 var resultado = await App.Context.UpdateAlumnoAsync(alumno);
                 if (resultado == 1)
                 {

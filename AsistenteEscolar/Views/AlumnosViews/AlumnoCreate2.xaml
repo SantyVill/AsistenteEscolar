@@ -7,7 +7,6 @@
             <Frame BorderColor="DarkGreen"
                    HasShadow="True"
                    BackgroundColor="White"
-                   HeightRequest="200"
                    WidthRequest="300"
                    CornerRadius="20"
                    VerticalOptions="Center"
@@ -17,11 +16,27 @@
                     <Label Text="Nombre:"
                            FontSize="Medium"
                            TextColor="Black" />
-                    <Entry x:Name="nombre"/>
+                    <Entry x:Name="nombre" Placeholder="Nombre">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Label Text="Apellido:"
                            FontSize="Medium"
                            TextColor="Black" />
-                    <Entry x:Name="apellido" />
+                    <Entry x:Name="apellido">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Button Text="Guardar"
                             x:Name="Guardar"
                             Clicked="Guardar_Clicked" />

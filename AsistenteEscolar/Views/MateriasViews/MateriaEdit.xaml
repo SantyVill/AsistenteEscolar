@@ -11,7 +11,7 @@
                    VerticalOptions="Center"
                    HorizontalOptions="Center">
                 <StackLayout VerticalOptions="Center">
-                    <Label Text="Editar Institución:"
+                    <Label Text="Editar Materia:"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
                     <Entry x:Name="nombre" />

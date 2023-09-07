@@ -5,13 +5,20 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray">
             <Frame BorderColor="Aqua"
-                   HeightRequest="200"
                    WidthRequest="300"
                    CornerRadius="20"
                    VerticalOptions="Center"
                    HorizontalOptions="Center">
                 <StackLayout VerticalOptions="Center">
-                    <Label Text="Editar Institución:"
+                    <Label Text="Editar Alumno:"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" 
+                           FontSize="Medium"/>
+                    <Label Text="Apellido"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                    <Entry x:Name="apellido" />
+                    <Label Text="Nombre"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
                     <Entry x:Name="nombre" />

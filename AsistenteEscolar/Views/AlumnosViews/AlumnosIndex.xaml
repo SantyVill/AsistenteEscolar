@@ -8,7 +8,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="Lista_Alumnos"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -25,8 +26,9 @@
                         </ViewCell.ContextActions>
                         <StackLayout Padding="15,0">
                             <Label FontSize="Medium"
-                                   TextColor="#a74c3c"
-                                   x:Name="BtnVerMaterias">
+                                   TextColor="DimGray"
+                                   x:Name="BtnVerMaterias"
+                                   >
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="{Binding Apellido}" />

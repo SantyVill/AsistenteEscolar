@@ -17,13 +17,20 @@ namespace AsistenteEscolar.Views.CursosViews
         {
             curso = _curso;
             InitializeComponent();
+            LoadItems();
         }
-
+        
+        private void LoadItems()
+        {
+            nombre.Text = curso.Nombre;
+            anio.Text = curso.Anio.ToString();
+        }
         private async void Editar_Clicked(object sender, EventArgs e)
         {
             try
             {
                 curso.Nombre = nombre.Text;
+                curso.Anio = int.Parse(anio.Text);
                 var resultado = await App.Context.UpdateCursoAsync(curso);
                 if (resultado == 1)
                 {

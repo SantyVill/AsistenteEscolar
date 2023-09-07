@@ -17,7 +17,7 @@ namespace AsistenteEscolar.Views.CursosViews
         public CursoShow(Curso curso)
         {
             InitializeComponent();
-            Title ="Curso: "+curso.Nombre;
+            Title ="Curso: "+curso.Anio+"° "+curso.Nombre;
 
             // Crear las páginas de materias y alumnos
             var materiasPage = new MateriasIndex(curso);

@@ -39,7 +39,6 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                 MateriaId = materia.Id,
             };
 
-            await App.Context.InsertAsistenciaAsync(asistencia);
 
             await CargarAlumnosAsync();
         }
@@ -92,6 +91,7 @@ namespace AsistenteEscolar.Views.AsistenciasViews
 
         private async void GuardarAsistencia_Clicked(object sender, EventArgs e)
         {
+            await App.Context.InsertAsistenciaAsync(asistencia);
             // Iterar sobre los controles de asistencia y guardar los registros
             foreach (var stackLayout in AlumnosStackLayout.Children)
             {
