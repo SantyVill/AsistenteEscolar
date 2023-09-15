@@ -20,7 +20,6 @@ namespace AsistenteEscolar.Views.MateriasViews
         {
             InitializeComponent();
             /* Title = "Curso: " + materia.Nombre; */
-
             // Crear las páginas de notas y asistencias
             var notasPage = new NotasIndex(materia);
             var asistenciasPage = new AsistenciasIndex(materia);

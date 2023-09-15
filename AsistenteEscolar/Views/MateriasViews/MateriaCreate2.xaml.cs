@@ -33,6 +33,16 @@ namespace AsistenteEscolar.Views.MateriasViews
                 var resultado = await App.Context.InsertMateriaAsync(item);
                 if (resultado == 1)
                 {
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        var nota = new Nota
+                        {
+                            Nombre = i+"° Trimestre ",
+                            MateriaId = item.Id,
+                            Fecha = DateTime.Now
+                        };
+                        await App.Context.InsertNotaAsync(nota);
+                    }
                     await Navigation.PopAsync();
                 }
                 else

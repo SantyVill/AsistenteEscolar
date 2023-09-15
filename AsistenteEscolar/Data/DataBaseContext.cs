@@ -24,7 +24,7 @@ namespace AsistenteEscolar.Data
             CreateTable<Materia>();
             CreateTable<Alumno>();
             CreateTable<Nota>();
-            CreateTable<NotaAlumno>();
+            CreateTable<NotaAlumno2>();
             CreateTable<Asistencia>();
             CreateTable<AsistenciaAlumno>();
         }
@@ -168,6 +168,17 @@ namespace AsistenteEscolar.Data
             return await Task.Run(()=> Delete(materia));
         }
         //CRUD para la tabla Nota
+        public async Task<List<Nota>> GetNotasByMateriaIdAsync(int materiaId)
+        {
+            List<Nota> notas = await Task.Run(() => Table<Nota>().Where(c => c.MateriaId == materiaId).ToList());
+            /* return await Task.Run(() => Table<Asistencia>().Where(c => c.MateriaId == materiaId).ToList()); */
+            foreach (var nota in notas)
+            {
+                nota.NotasAlumnos = await App.Context.GetNotaAlumnosByNotaIdAsync(nota.Id);
+            }
+            return notas;
+        }
+
         public async Task<List<Nota>> GetNotasByCursoIdAsync(int materiaId)
         {
             return await Task.Run(() => Table<Nota>().Where(c => c.MateriaId == materiaId).ToList());
@@ -194,27 +205,51 @@ namespace AsistenteEscolar.Data
         }
 
         //CRUD para la tabla NotaAlumno
-        public async Task<List<NotaAlumno>> GetNotaAlumnosByNotaIdAsync(int notaId)
+        public async Task<List<NotaAlumno2>> GetNotasAlumnoByAlumnoIdAndMateriaIdAsync(int alumnoId, int materiaId)
         {
-            return await Task.Run(() => Table<NotaAlumno>().Where(c => c.NotaId == notaId).ToList());
+            // Primero, obtenemos todas las notas para la materia específica
+            var notas = await Connection.Table<Nota>()
+                .Where(n => n.MateriaId == materiaId)
+                .ToListAsync();
+
+            // Luego, recorremos las notas y obtenemos los registros de NotaAlumno2 para el alumno específico
+            var notasAlumno = new List<NotaAlumno2>();
+            foreach (var nota in notas)
+            {
+                var notaAlumno = await Connection.Table<NotaAlumno2>()
+                    .Where(na => na.NotaId == nota.Id && na.AlumnoId == alumnoId)
+                    .FirstOrDefaultAsync();
+
+                if (notaAlumno != null)
+                {
+                    notasAlumno.Add(notaAlumno);
+                }
+            }
+
+            return notasAlumno;
+        }
+        
+        public async Task<List<NotaAlumno2>> GetNotaAlumnosByNotaIdAsync(int notaId)
+        {
+            return await Task.Run(() => Table<NotaAlumno2>().Where(c => c.NotaId == notaId).ToList());
         }
 
-        /* public async Task<NotaAlumno> GetNotaAlumnoByIdAsync(int NotaAlumnoId)
+        public async Task<NotaAlumno2> GetNotaAlumnoByIdAsync(int NotaAlumnoId)
         {
-            return await Task.Run(() => Table<NotaAlumno>().FirstOrDefault(c => c.Id == NotaAlumnoId));
-        } */
+            return await Task.Run(() => Table<NotaAlumno2>().FirstOrDefault(c => c.Id == NotaAlumnoId));
+        }
 
-        public async Task<int> InsertNotaAlumnoAsync(NotaAlumno notaAlumno)
+        public async Task<int> InsertNotaAlumnoAsync(NotaAlumno2 notaAlumno)
         {
             return await Task.Run(() => Insert(notaAlumno));
         }
 
-        public async Task<int> UpdateNotaAlumnoAsync(NotaAlumno notaAlumno)
+        public async Task<int> UpdateNotaAlumnoAsync(NotaAlumno2 notaAlumno)
         {
             return await Task.Run(() => Update(notaAlumno));
         }
 
-        public async Task<int> DeleteNotaAlumnoAsync(NotaAlumno notaAlumno)
+        public async Task<int> DeleteNotaAlumnoAsync(NotaAlumno2 notaAlumno)
         {
             return await Task.Run(()=> Delete(notaAlumno));
         }

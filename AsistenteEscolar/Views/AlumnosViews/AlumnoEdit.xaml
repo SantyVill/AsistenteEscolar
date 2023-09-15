@@ -17,11 +17,27 @@
                     <Label Text="Apellido"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
-                    <Entry x:Name="apellido" />
+                    <Entry x:Name="apellido">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Label Text="Nombre"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
-                    <Entry x:Name="nombre" />
+                    <Entry x:Name="nombre">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Button x:Name="Editar"
                             Text="Guardar"
                             Clicked="Editar_Clicked"

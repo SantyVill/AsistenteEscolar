@@ -2,11 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AsistenteEscolar.Views.NotasViews.NotasIndex">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar Nota"
+                     />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="prueba"
+                     Margin="0,15,0,0">
+            <ScrollView Orientation="Horizontal">
+                <Grid x:Name="tablaNota"
+                      Padding="0,0,0,10"></Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

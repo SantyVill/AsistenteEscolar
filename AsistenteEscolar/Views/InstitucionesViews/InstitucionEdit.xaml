@@ -14,7 +14,15 @@
                     <Label Text="Editar Institución:"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
-                    <Entry x:Name="nombre" />
+                    <Entry x:Name="nombre">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Button x:Name="Editar"
                             Text="Guardar"
                             Clicked="Editar_Clicked"

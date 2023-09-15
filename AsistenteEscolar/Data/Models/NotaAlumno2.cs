@@ -5,13 +5,17 @@ using System.Text;
 
 namespace AsistenteEscolar.Data.Models
 {
-    public class Nota
+    public class NotaAlumno2
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Nombre { get; set; }
-        public DateTime Fecha { get; set; }
-        public int MateriaId { get; set; }
-        public List<NotaAlumno2> NotasAlumnos;
+
+        [Indexed]
+        public int NotaId { get; set; }
+
+        [Indexed]
+        public int AlumnoId { get; set; }
+
+        public decimal Nota { get; set; }
     }
 }

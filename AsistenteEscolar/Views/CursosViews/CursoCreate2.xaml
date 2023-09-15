@@ -29,7 +29,15 @@
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
                            FontSize="Medium" />
-                    <Entry x:Name="nombre" />
+                    <Entry x:Name="nombre">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     <Button x:Name="Guardar"
                             Text="Guardar"
                             Clicked="Guardar_Clicked"
