@@ -35,3 +35,4 @@ F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\refint
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\AsistenteEscolar.pdb
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\AsistenciasViews\AsistenciaEdit.xaml.g.cs
 F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\NotasViews\NotasEdit.xaml.g.cs
+F:\AppsMoviles\AsistenteEscolar\AsistenteEscolar\obj\Debug\netstandard2.0\Views\NotasViews\AgregarNotas.xaml.g.cs

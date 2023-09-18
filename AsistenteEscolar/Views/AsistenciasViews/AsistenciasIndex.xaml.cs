@@ -108,8 +108,8 @@ namespace AsistenteEscolar.Views.AsistenciasViews
                     } else
                     {
                         tablaAsistencia.Children.Add(new Label { 
-                            Text = "%"+alumnos[i-1].PorcentajeAsistencias().ToString(),
-                            BackgroundColor= (alumnos[i - 1].PorcentajeAsistencias()>=75) ?Color.LawnGreen:Color.FromHex("#ff6e65"),
+                            Text = "%"+alumnos[i-1].PorcentajeAsistencias(materia).ToString(),
+                            BackgroundColor= (alumnos[i - 1].PorcentajeAsistencias(materia)>=75) ?Color.LawnGreen:Color.FromHex("#ff6e65"),
                             HorizontalTextAlignment=TextAlignment.Center,
                         }, j, i);
                     }

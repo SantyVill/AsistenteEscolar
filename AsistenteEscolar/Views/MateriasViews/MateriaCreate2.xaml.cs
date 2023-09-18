@@ -33,7 +33,7 @@ namespace AsistenteEscolar.Views.MateriasViews
                 var resultado = await App.Context.InsertMateriaAsync(item);
                 if (resultado == 1)
                 {
-                    for (int i = 1; i <= 3; i++)
+                   /*  for (int i = 1; i <= 3; i++)
                     {
                         var nota = new Nota
                         {
@@ -42,7 +42,7 @@ namespace AsistenteEscolar.Views.MateriasViews
                             Fecha = DateTime.Now
                         };
                         await App.Context.InsertNotaAsync(nota);
-                    }
+                    } */
                     await Navigation.PopAsync();
                 }
                 else

@@ -110,12 +110,18 @@ namespace AsistenteEscolar.Data
             List<Alumno> alumnos = await Task.Run(() => Table<Alumno>().Where(c => c.CursoId == materia.CursoId).OrderBy(a => a.Apellido).ThenBy(a => a.Nombre).ToList());
             List<Asistencia> asistencias = await GetAsistenciasByMateriaIdAsync(materia.Id);
             List<int> asistenciaIds = asistencias.Select(a => a.Id).ToList();
+            List<Nota> notas = await GetNotasByMateriaIdAsync(materia.Id);
+            List<int> notasIds = notas.Select(a => a.Id).ToList();
 
             foreach (var alumno in alumnos)
             {
                 alumno.asistenciasAlumno = await Task.Run(() =>
                     Table<AsistenciaAlumno>()
                     .Where(c => c.AlumnoId == alumno.Id && asistenciaIds.Contains(c.AsistenciaId))
+                    .ToList());
+                alumno.notas = await Task.Run(() =>
+                    Table<NotaAlumno2>()
+                    .Where(c => c.AlumnoId == alumno.Id && notasIds.Contains(c.NotaId))
                     .ToList());
             }
 

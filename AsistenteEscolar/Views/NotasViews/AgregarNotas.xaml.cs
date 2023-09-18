@@ -11,13 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace AsistenteEscolar.Views.NotasViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NotasEdit : ContentPage
+    public partial class AgregarNotas : ContentPage
     {
         private Materia materia;
         private List<Alumno> alumnos;
         private Nota nota;
 
-        public NotasEdit(Materia materia_, Nota nota_)
+        public AgregarNotas(Materia materia_ ,Nota nota_)
         {
             materia = materia_;
             nota = nota_;
@@ -38,22 +38,12 @@ namespace AsistenteEscolar.Views.NotasViews
 
         private async Task CargarAlumnosAsync()
         {
-            alumnos = await App.Context.GetAlumnosByMateriaAsync(materia);
+            alumnos = await App.Context.GetAlumnosByCursoIdAsync(materia.CursoId);
 
             foreach (var alumno in alumnos)
             {
-                NotaAlumno2 notaAlumno = alumno.NotaAlumnoPorNota(nota);
-                if (notaAlumno == null)
-                {
-                    notaAlumno = new NotaAlumno2
-                    {
-                        AlumnoId = alumno.Id,
-                        NotaId = nota.Id,
-                        Nota = 0
-                    };
-                    alumno.notas.Add(notaAlumno);
-                    await App.Context.InsertNotaAlumnoAsync(notaAlumno);
-                }
+                
+
                 var label = new Label
                 {
                     Text = alumno.Apellido + ", " + alumno.Nombre,
@@ -62,12 +52,11 @@ namespace AsistenteEscolar.Views.NotasViews
                 var entry = new Entry
                 {
                     BindingContext = alumno,
-                    Text=alumno.NotaAlumnoPorNota(nota).Nota.ToString(),
                     Margin = new Thickness(0, 5),
                     Keyboard = Keyboard.Numeric,
                     MaxLength = 2,
                     HorizontalOptions = LayoutOptions.Fill,
-                    WidthRequest = 40,
+                    WidthRequest = 40, 
                 };
 
                 var stackLayout = new StackLayout
@@ -80,9 +69,46 @@ namespace AsistenteEscolar.Views.NotasViews
             }
         }
 
+        /*private void SwitchControl_Toggled(object sender, ToggledEventArgs e)
+        {
+            // Manejar el evento de cambio de estado del Switch
+            var switchControl = (Switch)sender;
+            var alumno = switchControl.BindingContext as Alumno;
+            var presente = switchControl.IsToggled;
+
+            var item = new NotaAlumno
+            {
+                AlumnoId = alumno.Id,
+                NotaId = nota.Id,
+                //Nota = nota
+            };
+
+             await App.Context.InsertAsistenciaAlumnoAsync(item); 
+        }*/
 
         private async void GuardarNota_Clicked(object sender, EventArgs e)
         {
+            /*//await App.Context.InsertNotaAsync(asistencia);
+            // Iterar sobre los controles de asistencia y guardar los registros
+            foreach (var stackLayout in AlumnosStackLayout.Children)
+            {
+                var switchControl = ((StackLayout)stackLayout).Children[0] as Switch;
+                var alumno = switchControl.BindingContext as Alumno;
+                var presente = switchControl.IsToggled;
+
+                var item = new NotaAlumno
+                {
+                    AlumnoId = alumno.Id,
+                    NotaId = nota.Id,
+                    Nota = nota
+                };
+
+                // Guardar el registro de asistencia en la tabla AsistenciaAlumno
+                await App.Context.InsertAsistenciaAlumnoAsync(item);
+            }
+
+            await DisplayAlert("Éxito", "La asistencia ha sido registrada correctamente.", "Aceptar");
+            await Navigation.PopAsync();*/
             int resultado = 0;
             foreach (var stackLayout in AlumnosStackLayout.Children)
             {
@@ -91,38 +117,33 @@ namespace AsistenteEscolar.Views.NotasViews
                 if (entry != null && !string.IsNullOrWhiteSpace(entry.Text))
                 {
                     // Parsear la nota ingresada (asumiendo que las notas son números válidos)
-                    if (float.TryParse(entry.Text, out float notaValue) && (int)notaValue<=10 && (int)notaValue>=0)
+                    if (float.TryParse(entry.Text, out float notaValue) && (int)notaValue <= 10 && (int)notaValue >= 1)
                     {
                         var notaAlumno = new NotaAlumno2
                         {
                             AlumnoId = alumno.Id,
                             NotaId = nota.Id,
-                            Nota = (int)notaValue,
-                            Id = alumno.NotaAlumnoPorNota(nota).Id
+                            Nota = (int)notaValue
                         };
 
+                        //await DisplayAlert("Error", "Alumno: " + alumno.NombreCompleto()+"    nota: "+notaAlumno.Nota, "Aceptar");
                         // Guardar el registro de nota en la base de datos
-                        resultado = await App.Context.UpdateNotaAlumnoAsync(notaAlumno);
-                        if (resultado==01)
-                        {
-                            await App.Context.InsertNotaAlumnoAsync(notaAlumno);
-                        }
-                        
+                        resultado+= await App.Context.InsertNotaAlumnoAsync(notaAlumno);
                     }
                     else
                     {
-                        await DisplayAlert("Error", "Por favor, ingrese una nota válida para " + alumno.Apellido + ", " + alumno.Nombre, "Aceptar");
+                        await DisplayAlert("Error", "Por favor, ingrese una nota válida para " + alumno.Apellido+", "+alumno.Nombre, "Aceptar");
                         return;
                     }
                 }
             }
-            if (resultado != 0)
+            if (resultado!=0)
             {
-                await DisplayAlert("Éxito", "Las notas han sido editadas correctamente.", "Aceptar");
+                await DisplayAlert("Éxito", "Las notas han sido registradas correctamente.", "Aceptar");
             }
             else
             {
-                await DisplayAlert("Error", "No se pudo editar las notas", "Aceptar");
+                await DisplayAlert("Error","No se pudo cargar las notas","Aceptar");
             }
             await Navigation.PopAsync();
         }

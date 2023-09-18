@@ -16,6 +16,6 @@ namespace AsistenteEscolar.Data.Models
         [Indexed]
         public int AlumnoId { get; set; }
 
-        public decimal Nota { get; set; }
+        public int Nota { get; set; }
     }
 }

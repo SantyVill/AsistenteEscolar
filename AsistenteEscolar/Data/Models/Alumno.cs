@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms.Shapes;
 
 namespace AsistenteEscolar.Data.Models
 {
@@ -17,6 +18,10 @@ namespace AsistenteEscolar.Data.Models
         public List<AsistenciaAlumno> asistenciasAlumno;
         public List<NotaAlumno2> notas;
 
+        public string NombreCompleto()
+        {
+            return this.Apellido + ", "+this.Nombre;
+        }
         public string AsistenciaAlumnoPorAsistencia(Asistencia asistencia){
             foreach (var item in this.asistenciasAlumno)
             {
@@ -60,7 +65,23 @@ namespace AsistenteEscolar.Data.Models
             }
         }
 
-        public NotaAlumno2 NotaDelAlumnoPorNota(Nota nota)
+        public int NotaDelAlumnoPorNota(Nota nota)
+        {
+            if (this.notas == null)
+            {
+                return 0;
+            }
+            foreach (var item in this.notas)
+            {
+                if (item.NotaId == nota.Id)
+                {
+                    return item.Nota;
+                }
+            }
+            return 0;
+        }
+
+        public NotaAlumno2 NotaAlumnoPorNota(Nota nota)
         {
             foreach (var item in this.notas)
             {
@@ -72,15 +93,35 @@ namespace AsistenteEscolar.Data.Models
             return null;
         }
 
-        public int PorcentajeAsistencias()
+        public int PorcentajeAsistencias(Materia materia)
         {
-            if (this.asistenciasAlumno.Count()==0)
+            if (this.asistenciasAlumno.Count() == 0)
             {
                 return 0;
             }
             else
             {
-                return this.CantidadAsistencias()*100 / this.asistenciasAlumno.Count();
+                int porcentaje = 0, cantidad = 0;
+
+                foreach (var item in this.asistenciasAlumno)
+                {
+                    if (item != null && item.AlumnoId==this.Id)
+                    {
+                        if (item.Asistio)
+                        {
+                            porcentaje += 1;
+                        }
+                        cantidad += 1;
+                    }
+                }
+
+                if (cantidad == 0)
+                {
+                    return 0; // Evita la división por cero
+                }
+
+                porcentaje = porcentaje * 100 / cantidad;
+                return porcentaje;
             }
         }
 
